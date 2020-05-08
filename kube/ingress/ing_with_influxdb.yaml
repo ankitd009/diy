@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/enable-influxdb: "true"
+    nginx.ingress.kubernetes.io/influxdb-measurement: "nginx-reqs"
+    nginx.ingress.kubernetes.io/influxdb-port: "8126"
+    nginx.ingress.kubernetes.io/influxdb-host: "<replace this with telegraf svc ip>" # or run telegraf as sidecar
+    nginx.ingress.kubernetes.io/influxdb-server-name: "nginx-ingress"
+spec:
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: web
+              servicePort: 8080
