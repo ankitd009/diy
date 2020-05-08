@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: telegraf
+  namespace: monitoring
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: port-8126
+      nodePort: 32162
+      port: 8126
+      protocol: UDP
+      targetPort: 8126
+    - name: port-8125
+      nodePort: 32161
+      port: 8125
+      protocol: UDP
+      targetPort: 8125
+  selector:
+    app: telegraf
+  sessionAffinity: None
+  type: NodePort
