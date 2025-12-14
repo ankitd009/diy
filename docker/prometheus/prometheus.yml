@@ -11,4 +11,10 @@ scrape_configs:
   # Tell Prometheus to scrape metrics on host:port 3000
   - job_name: 'service_local'
     static_configs:
-      - targets: ['host.docker.internal:3000']
+      - targets: ['localhost:3000']
+
+  # Tell Prometheus to scrape metrics on host:port 6070
+  - job_name: 'proxysql'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['localhost:6070']
