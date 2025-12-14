@@ -7,6 +7,9 @@ admin_variables=
     mysql_ifaces="0.0.0.0:6032"
     web_enabled=true
     web_port=6080
+    restapi_enabled=true
+    restapi_port=6070
+    prometheus_memory_metrics_interval=60
 }
 
 mysql_variables=
