@@ -1,5 +1,5 @@
 ```
-docker run -d  --rm --name prom  -p 9090:9090 \
-  -v /Users/ankit.deshpande/workspace/data/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+docker run -d  --rm --name prom --network host \
+  -v /Users/ankitdeshpande/workspace/tmp/data/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
   prom/prometheus
 ```
