@@ -11,3 +11,4 @@ Upload JSON > Select Datasource > Save
 ## Links to dashboards
 * [NGINX](https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/grafana/dashboards/nginx.json)
 * [K8-Cluster](https://grafana.com/grafana/dashboards/10856)
+* [ProxySQL](https://github.com/ProxySQL/proxysql-grafana-prometheus/tree/main/grafana/provisioning/dashboards)
